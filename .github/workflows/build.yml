@@ -1,0 +1,58 @@
+name: Build and Deploy FHIR IG to GitHub Pages
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Cache FHIR packages
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.fhir/packages
+          key: fhir-${{ hashFiles('**/package.json', '**/ig.ini') }}
+          restore-keys: |
+            fhir-
+
+      - name: Install Graphviz
+        run: sudo apt-get install -y graphviz
+
+      - uses: qligier/fhir-ig-action@v0.3.0
+        with:
+          ig-publisher: "latest"
+          sushi: "latest"
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./output
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    if: github.event_name != 'pull_request'
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

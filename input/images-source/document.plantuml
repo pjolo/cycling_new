@@ -1,0 +1,58 @@
+@startuml
+' ============================================================
+' TEMPLATE: FHIR Document Structure Diagram
+' Zweck:    Visualisierung Bundle-Struktur für CH IGs
+' Anpassen: [BUNDLE_NAME], [PROFILE_NAME], Sections & Entries
+' ============================================================
+
+skinparam shadowing false
+skinparam defaultFontSize 12
+skinparam rectangle {
+  roundCorner 10
+}
+skinparam arrow {
+  Color #555555
+  FontSize 10
+}
+
+left to right direction
+
+rectangle "**Bundle: [BUNDLE_NAME] Document**" as Bundle #orange/yellow {
+
+  ' ── LINKE SPALTE: Composition mit Sections ─────────────────
+  together {
+    rectangle "**Entry: Composition**" as Comp #cornflowerblue/lightblue {
+
+      ' ── Patient (immer erste Zeile) ──
+      rectangle "Patient (Reference)       " as PatRef #yellowgreen
+
+      ' ── Sections (Bezeichnung = Composition.section.title) ──
+      rectangle "Section 1                          " as Sec1  #yellowgreen
+      rectangle "Section 2                          " as Sec2  #yellowgreen
+      rectangle "Section 3                          " as Sec3  #yellowgreen
+      ' ... weitere Sections hier einfügen
+
+    }
+  }
+
+  ' ── RECHTE SPALTE: FHIR-Ressourcen (Entries) ───────────────
+  ' Tipp: URL-Format  [[<url> Entry: <Ressource>]]
+  '       Lokal:      [[StructureDefinition-<id>.html Entry: <Ressource>]]
+  '       Extern CH:  [[http://fhir.ch/ig/ch-core/... Entry: <Ressource>]]
+  '       Extern IPS: [[http://fhir.ch/ig/ch-ips/...  Entry: <Ressource>]]
+  together {
+    rectangle "[[StructureDefinition-[PROFILE_ID].html Entry: Patient]]"          as E1 #salmon
+    rectangle "[[StructureDefinition-[PROFILE_ID].html Entry: [Ressource 2]]]"    as E2 #salmon
+    rectangle "[[StructureDefinition-[PROFILE_ID].html Entry: [Ressource 3]]]"    as E3 #salmon
+    ' ... weitere Entries hier einfügen
+  }
+
+}
+
+' ── PFEILE: Section → Entry ─────────────────────────────────
+' Syntax: <Section> ..> <Entry>
+PatRef ..> E1
+Sec1   ..> E2
+Sec2   ..> E3
+
+@enduml
