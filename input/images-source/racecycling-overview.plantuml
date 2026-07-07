@@ -1,0 +1,147 @@
+@startuml
+!theme plain
+skinparam defaultFontName "Helvetica"
+skinparam classAttributeIconSize 0
+skinparam nodesep 50
+skinparam ranksep 60
+
+title RaceCycling FHIR IG - Resource Overview
+
+package "Profiles" {
+    class Cyclist <<Profile>> {
+        + name: HumanName [1..*]
+        ]
+        + gender: code [0..1]
+        + birthDate: date [0..1]
+        + extension[ftp] : FunctionalThresholdPower [0..1]
+    }
+    
+    class RaceBike <<Profile>> {
+        + status: code [1..1]
+        + deviceName [1..*]
+        + property[frameMaterial] [0..1]        + property[groupset] [0..1]        + property[wheelset] [0..1]
+    }
+    
+    class RideMetric <<Profile>> {
+        + status = #final
+        + code: CodeableConcept [1..1]        + subject: Reference(Patient) [1..1]        + effective[x]: dateTime [1..1]
+        + valueQuantity: Quantity [1..1]
+    }
+    
+    class TrainingRide <<Profile>> {
+        + status = #completed
+        + code: CodeableConcept [1..1]
+        + subject: Reference(Patient) [1..1]
+        + performer: Reference(Patient) [0..*]
+        + performedDateTime: dateTime [1..1]
+        + partOf: Reference(TrainingRide) [0..*]
+    }
+    
+    class RideReport <<Profile>> {
+        + type = #document
+        + timestamp: instant [1..1]
+        + entry[cyclist]: Reference(Cyclist) [1..1]
+        + entry[bike]: Reference(RaceBike) [0..1]
+        + entry[ride]: Reference(TrainingRide) [1..1]
+        + entry[metrics]: Reference(RideMetric) [1..*]
+    }
+}
+
+package "Extensions" {
+    class FunctionalThresholdPower <<Extension>> {
+        + valueQuantity: Quantity
+        + code = W (UCUM)
+    }
+}
+
+package "Terminologies" {
+    class RaceBikePropertyType <<CodeSystem>> {
+        + frame-material
+        + groupset
+        + wheelset
+    }
+    
+    class RaceBikeFrameMaterial <<CodeSystem>> {
+        + carbon
+        + aluminium
+        + steel
+        + titanium
+    }
+    
+    class RaceBikeGroupset <<CodeSystem>> {
+        + shimano
+        + sram
+        + campagnolo
+        + shimano-dura-ace
+        + shimano-ultegra
+        + shimano-105
+        + sram-red
+        + sram-force
+        + sram-rival
+        + campagnolo-super-record
+        + campagnolo-record
+        + campagnolo-chorus
+    }
+    
+    class RaceBikeWheelset <<CodeSystem>> {
+        + clincher
+        + tubular
+        + tubeless
+        + tubeless-ready
+        + disc-brake
+        + rim-brake
+    }
+    
+    class RideMetricType <<CodeSystem>> {
+        + power (LOINC 82804-7)
+        + heart-rate (LOINC 8867-4)
+        + cadence (LOINC 92793-1)
+        + speed (LOINC 8277-5)
+        + distance (LOINC 8320-3)
+        + elevation (LOINC 8278-3)
+    }
+}
+
+package "Instances (Examples)" {
+    object CyclistAnnaMuller : Cyclist
+    object CyclistThomasWeber : Cyclist
+    object RaceBikeCanyonUltimate : RaceBike
+    object RaceBikeSpecializedTarmac : RaceBike
+    object RideMetricAnnaPower : RideMetric
+    object RideMetricAnnaHeartRate : RideMetric
+    object RideMetricAnnaCadence : RideMetric
+    object RideMetricAnnaSpeed : RideMetric
+    object TrainingRideAnnaMorning : TrainingRide
+    object RideReportAnnaMorning : RideReport
+}
+
+' Relationships
+Cyclist "1" --> "1" FunctionalThresholdPower : extension[ftp]
+Cyclist "1" --> "1" RaceBike : owns
+Cyclist "1" --> "*" TrainingRide : performs
+TrainingRide "1" --> "*" RideMetric : records
+RideReport "1" --> "1" Cyclist : entry[cyclist]
+RideReport "1" --> "1" RaceBike : entry[bike]
+RideReport "1" --> "1" TrainingRide : entry[ride]
+RideReport "1" --> "*" RideMetric : entry[metrics]
+
+RaceBike "1" --> "1" RaceBikePropertyType : property.type
+RaceBike "1" --> "1" RaceBikeFrameMaterial : property[frameMaterial]
+RaceBike "1" --> "1" RaceBikeGroupset : property[groupset]
+RaceBike "1" --> "1" RaceBikeWheelset : property[wheelset]
+
+RideMetric "1" --> "1" RideMetricType : code
+
+note right of CyclistAnnaMuller
+  Example: Anna Müller
+  FTP: 245W
+  Bike: Canyon Ultimate CF SLX
+end note
+
+note right of RaceBikeCanyonUltimate
+  Frame: Carbon
+  Groupset: Shimano Ultegra Di2
+  Wheels: Tubeless
+end note
+
+@enduml
