@@ -30,7 +30,7 @@ This Implementation Guide demonstrates FHIR profiling for cycling domain concept
 
 - [Use Case (Deutsch)](usecase-german.html)
 - [Cas d'usage (Français)](usecase-french.html)
-- [Resource Overview (PlantUML)](racecycling-overview.html)
+
 - [Artifacts Summary](artifacts.html)
 
 
