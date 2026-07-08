@@ -4,9 +4,6 @@ The source is available in the [GitHub Repository](https://github.com/ahdis/ch-i
 
 For detailed instructions and best practice approaches for developing implementation guides, see the [Guidance](guidance.html) page.
 
-{% include dependencies-igs.svg %}
-*Fig. 2: Dependencies*
-
 <span style="color: red;"><em>✂️ Template starts here - delete the informative part above for your own IG ✂️</em></span>
 
 ---
