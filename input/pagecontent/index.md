@@ -28,7 +28,7 @@ This Implementation Guide demonstrates FHIR profiling for cycling domain concept
 - Training ride with power, heart rate, cadence, and speed metrics
 - Complete ride report bundle
 
-{% include racecycling-overview.svg %}
+
 
 ### IP Statements
 This document is licensed under Creative Commons "No Rights Reserved" ([CC0](https://creativecommons.org/publicdomain/zero/1.0/)).
