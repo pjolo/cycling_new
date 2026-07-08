@@ -1,6 +1,6 @@
 # Race Cycling FHIR Implementation Guide
 
-Welcome to the **Race Cycling FHIR Implementation Guide** - a playful FHIR IG for road cycling enthusiasts! 🚴‍♂️
+Welcome to the **Race Cycling FHIR Implementation Guide** - a playful FHIR IG for road cycling enthusiasts
 
 ## Overview
 
@@ -28,11 +28,6 @@ This Implementation Guide demonstrates FHIR profiling for cycling domain concept
 
 ## Navigation
 
-- [Use Case (Deutsch)](usecase-german.html)
-- [Cas d'usage (Français)](usecase-french.html)
-
-- [Artifacts Summary](artifacts.html)
-
 
 ## FHIR Version
 
@@ -42,6 +37,4 @@ This IG is based on **FHIR R4 (4.0.1)**.
 
 CC0-1.0 - Public Domain
 
----
-
-*This is a fun/educational Implementation Guide - not for clinical use!*
+This is a fun/educational Implementation Guide - not for clinical use!*
