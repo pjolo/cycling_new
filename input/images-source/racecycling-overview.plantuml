@@ -14,7 +14,7 @@ package "Profiles" {
         + birthDate: date [0..1]
         + extension[ftp] : FunctionalThresholdPower [0..1]
     }
-    
+
     class RaceBike <<Profile>> {
         + status: code [1..1]
         + deviceName [1..*]
@@ -22,26 +22,26 @@ package "Profiles" {
         + property[groupset] [0..1]
         + property[wheelset] [0..1]
     }
-    
+
     class RideMetric <<Profile>> {
-        + status = #final
+        + status : final
         + code: CodeableConcept [1..1]
         + subject: Reference(Patient) [1..1]
         + effective[x]: dateTime [1..1]
         + valueQuantity: Quantity [1..1]
     }
-    
+
     class TrainingRide <<Profile>> {
-        + status = #completed
+        + status : completed
         + code: CodeableConcept [1..1]
         + subject: Reference(Patient) [1..1]
         + performer: Reference(Patient) [0..*]
         + performedDateTime: dateTime [1..1]
         + partOf: Reference(TrainingRide) [0..*]
     }
-    
+
     class RideReport <<Profile>> {
-        + type = #document
+        + type : document
         + timestamp: instant [1..1]
         + entry[cyclist]: Reference(Cyclist) [1..1]
         + entry[bike]: Reference(RaceBike) [0..1]
@@ -53,7 +53,7 @@ package "Profiles" {
 package "Extensions" {
     class FunctionalThresholdPower <<Extension>> {
         + valueQuantity: Quantity
-        + code = W (UCUM)
+        + code : W_UCUM
     }
 }
 
@@ -63,14 +63,14 @@ package "Terminologies" {
         + groupset
         + wheelset
     }
-    
+
     class RaceBikeFrameMaterial <<CodeSystem>> {
         + carbon
         + aluminium
         + steel
         + titanium
     }
-    
+
     class RaceBikeGroupset <<CodeSystem>> {
         + shimano
         + sram
@@ -85,7 +85,7 @@ package "Terminologies" {
         + campagnolo-record
         + campagnolo-chorus
     }
-    
+
     class RaceBikeWheelset <<CodeSystem>> {
         + clincher
         + tubular
@@ -94,29 +94,40 @@ package "Terminologies" {
         + disc-brake
         + rim-brake
     }
-    
+
     class RideMetricType <<CodeSystem>> {
-        + power (LOINC 82804-7)
-        + heart-rate (LOINC 8867-4)
-        + cadence (LOINC 92793-1)
-        + speed (LOINC 8277-5)
-        + distance (LOINC 8320-3)
-        + elevation (LOINC 8278-3)
+        + power_LOINC_82804_7
+        + heart_rate_LOINC_8867_4
+        + cadence_LOINC_92793_1
+        + speed_LOINC_8277_5
+        + distance_LOINC_8320_3
+        + elevation_LOINC_8278_3
     }
 }
 
 package "Instances (Examples)" {
-    object CyclistAnnaMuller : Cyclist
-    object CyclistThomasWeber : Cyclist
-    object RaceBikeCanyonUltimate : RaceBike
-    object RaceBikeSpecializedTarmac : RaceBike
-    object RideMetricAnnaPower : RideMetric
-    object RideMetricAnnaHeartRate : RideMetric
-    object RideMetricAnnaCadence : RideMetric
-    object RideMetricAnnaSpeed : RideMetric
-    object TrainingRideAnnaMorning : TrainingRide
-    object RideReportAnnaMorning : RideReport
+    object CyclistAnnaMuller
+    object CyclistThomasWeber
+    object RaceBikeCanyonUltimate
+    object RaceBikeSpecializedTarmac
+    object RideMetricAnnaPower
+    object RideMetricAnnaHeartRate
+    object RideMetricAnnaCadence
+    object RideMetricAnnaSpeed
+    object TrainingRideAnnaMorning
+    object RideReportAnnaMorning
 }
+
+CyclistAnnaMuller ..|> Cyclist
+CyclistThomasWeber ..|> Cyclist
+RaceBikeCanyonUltimate ..|> RaceBike
+RaceBikeSpecializedTarmac ..|> RaceBike
+RideMetricAnnaPower ..|> RideMetric
+RideMetricAnnaHeartRate ..|> RideMetric
+RideMetricAnnaCadence ..|> RideMetric
+RideMetricAnnaSpeed ..|> RideMetric
+TrainingRideAnnaMorning ..|> TrainingRide
+RideReportAnnaMorning ..|> RideReport
 
 ' Relationships
 Cyclist "1" --> "1" FunctionalThresholdPower : extension[ftp]
@@ -136,7 +147,7 @@ RaceBike "1" --> "1" RaceBikeWheelset : property[wheelset]
 RideMetric "1" --> "1" RideMetricType : code
 
 note right of CyclistAnnaMuller
-  Example: Anna Müller
+  Example: Anna Mueller
   FTP: 245W
   Bike: Canyon Ultimate CF SLX
 end note
