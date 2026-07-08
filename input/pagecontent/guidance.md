@@ -34,7 +34,7 @@ You can embed [instance fragments](https://build.fhir.org/ig/FHIR/ig-guidance/fr
 - [Mermaid](https://build.fhir.org/ig/FHIR/ig-guidance/diagrams-mermaid.html)
 - [PlantUml](https://build.fhir.org/ig/FHIR/ig-guidance/diagrams-plantuml.html) (see example from CH Core below)
 
-<div>{% include dependencies-igs.svg %}</div>
+
 
 ### Cross-Versioning
 See details about [extensions for converting between versions](https://build.fhir.org/versions.html#extensions) (see also [FHIR Cross-Version Mapping Pack](https://build.fhir.org/ig/HL7/fhir-cross-version/)).
