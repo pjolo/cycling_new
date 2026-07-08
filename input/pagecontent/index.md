@@ -33,7 +33,6 @@ This Implementation Guide demonstrates FHIR profiling for cycling domain concept
 - [Resource Overview (PlantUML)](racecycling-overview.html)
 - [Artifacts Summary](artifacts.html)
 
-{% include racecycling-overview.svg %}
 
 ## FHIR Version
 
