@@ -1,20 +1,32 @@
-### Introduction
-**CH IG** is a template for creating a FHIR implementation guide (IG) published by [HL7 Switzerland](https://www.hl7.ch/).     
-The source is available in the [GitHub Repository](https://github.com/ahdis/ch-ig).
+# Race Cycling FHIR Implementation Guide
 
-For detailed instructions and best practice approaches for developing implementation guides, see the [Guidance](guidance.html) page.
+Welcome to the **Race Cycling FHIR Implementation Guide** - a playful FHIR IG for road cycling enthusiasts! 🚴‍♂️
 
-<span style="color: red;"><em>✂️ Template starts here - delete the informative part above for your own IG ✂️</em></span>
+*This is a fun/educational Implementation Guide - not for clinical use!*
 
----
+## Overview
 
-<div markdown="1" class="stu-note">
+This Implementation Guide demonstrates FHIR profiling for cycling domain concepts:
 
-[Changelog](changelog.html) with significant changes, open and closed issues.
+- **Cyclist** - A patient/cyclist profile with Functional Threshold Power (FTP) extension
+- **RaceBike** - A Device profile with sliced properties for frame material, groupset, and wheelset
+- **RideMetric** - Observation profile for training metrics (power, heart rate, cadence, speed)
+- **TrainingRide** - Procedure profile representing a training ride or race
+- **RideReport** - Bundle document summarizing a complete ride with cyclist, bike, ride, and metrics
 
-</div>
+## Key Features
 
-**Download**: You can download this implementation guide in the [NPM package](https://confluence.hl7.org/display/FHIR/NPM+Package+Specification) format from [here](package.tgz).
+- **Extensions**: Functional Threshold Power (FTP) in watts
+- **Terminologies**: Custom CodeSystems for frame materials, groupsets, wheelsets, and metric types
+- **Slicing**: Device.property slicing for bike components, Bundle.entry slicing for report structure
+- **ValueSets**: Bound value sets with required binding strength
+
+## Example Scenarios
+
+- Amateur cyclist Anna Müller with FTP of 245W on a Canyon Ultimate CF SLX
+- Professional cyclist Thomas Weber with FTP of 420W on a Specialized S-Works Tarmac SL7
+- Training ride with power, heart rate, cadence, and speed metrics
+- Complete ride report bundle
 
 ### IP Statements
 This document is licensed under Creative Commons "No Rights Reserved" ([CC0](https://creativecommons.org/publicdomain/zero/1.0/)).
