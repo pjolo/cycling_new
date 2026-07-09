@@ -5,6 +5,7 @@ Description: "Complete ride report bundle for Thomas Weber's professional traini
 Usage: #example
 
 * timestamp = "2024-01-15T11:15:00+01:00"
+* entry[0].resource = RideReportThomasWeberComposition
 * entry[cyclist].resource = CyclistThomasWeber
 * entry[bike].resource = RaceBikeSpecializedSWorks
 * entry[ride].resource = TrainingRideThomasWeber

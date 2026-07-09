@@ -5,6 +5,7 @@ Description: "Complete ride report bundle for Anna Müller's morning interval tr
 Usage: #example
 
 * timestamp = "2024-01-15T10:45:00+01:00"
+* entry[0].resource = RideReportAnnaMorningComposition
 * entry[cyclist].resource = CyclistAnnaMuller
 * entry[bike].resource = RaceBikeCanyonUltimate
 * entry[ride].resource = TrainingRideAnnaMorning
