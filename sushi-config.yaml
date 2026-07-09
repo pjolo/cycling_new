@@ -129,12 +129,26 @@ resources:
     profile:
       - http://fhir.ch/ig/ch-ig/StructureDefinition/ride-metric
 
-  RideMetricAnnaSpeed:
-    name: RideMetricAnnaSpeed
-    description: Anna's speed metric - 32.5 km/h
-    exampleBoolean: true
-    profile:
-      - http://fhir.ch/ig/ch-ig/StructureDefinition/ride-metric
+RideMetricAnnaSpeed:
+     name: RideMetricAnnaSpeed
+     description: Anna's speed metric - 32.5 km/h
+     exampleBoolean: true
+     profile:
+       - http://fhir.ch/ig/ch-ig/StructureDefinition/ride-metric
+
+   RideReportAnnaMorning:
+     name: RideReportAnnaMorning
+     description: Anna's complete morning ride report bundle
+     exampleBoolean: true
+     profile:
+       - http://fhir.ch/ig/ch-ig/StructureDefinition/ride-report
+
+   RideReportThomasWeber:
+     name: RideReportThomasWeber
+     description: Thomas's complete training ride report bundle
+     exampleBoolean: true
+     profile:
+       - http://fhir.ch/ig/ch-ig/StructureDefinition/ride-report
 
 # Parameters
   # Core FHIR: http://build.fhir.org/codesystem-guide-parameter-code.html
