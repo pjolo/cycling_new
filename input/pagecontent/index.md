@@ -26,7 +26,7 @@ This Implementation Guide demonstrates FHIR profiling for cycling domain concept
 - Amateur cyclist Anna Müller with FTP of 245W on a Canyon Ultimate CF SLX
 - Professional cyclist Thomas Weber with FTP of 420W on a Specialized S-Works Tarmac SL7
 - Training ride with power, heart rate, cadence, and speed metrics
-- Complete ride report bundle
+- Complete ride report bundle.
 
 {% include racecycling-overview.svg %}
 
