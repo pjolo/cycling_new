@@ -22,28 +22,36 @@ Ce guide d'implémentation (IG) modélise le domaine du cyclisme sur route avec 
    - Nom: Anna Müller
    - Date de naissance: 15.06.1995
    - FTP: 245 W (Extension)
+   - [Exemple](CyclistAnnaMuller.html)
 
 2. **Vélo de course** (`RaceBikeCanyonUltimate`):
    - Modèle: Canyon Ultimate CF SLX 8.0
    - Cadre: Carbone (`RaceBikeFrameMaterial#carbon`)
    - Groupe: Shimano Ultegra Di2 (`RaceBikeGroupset#shimano-ultegra`)
    - Roues: Tubeless (`RaceBikeWheelset#tubeless`)
+   - [Exemple](RaceBikeCanyonUltimate.html)
 
 3. **Sortie d'entraînement** (`TrainingRideAnnaMorning`):
    - Statut: completed
    - Date: 15.01.2024, 08:30
    - Liée à Anna et son vélo
+   - [Exemple](TrainingRideAnnaMorning.html)
 
 4. **Métriques** (chacune une `RideMetric`):
    - **Puissance**: 215 W en moyenne (`RideMetricType#power`)
+     - [Exemple](RideMetricAnnaPower.html)
    - **Fréquence cardiaque**: 142 bpm en moyenne (`RideMetricType#heart-rate`)
+     - [Exemple](RideMetricAnnaHeartRate.html)
    - **Cadence**: 88 rpm (`RideMetricType#cadence`)
+     - [Exemple](RideMetricAnnaCadence.html)
    - **Vitesse**: 32.5 km/h (`RideMetricType#speed`)
+     - [Exemple](RideMetricAnnaSpeed.html)
 
 5. **Rapport de sortie** (`RideReportAnnaMorning`):
    - Bundle de type `document`
    - Contient: Cyclist, RaceBike, TrainingRide, 4× RideMetric
    - Horodatage: 15.01.2024, 10:45
+   - [Exemple](RideReportAnnaMorning.html)
 
 ## Terminologies (CodeSystems fictifs)
 
@@ -96,6 +104,8 @@ Tous les CodeSystems sont **fictifs** et uniquement pour ce IG ludique:
 ## Prochaines étapes pour les apprenants
 
 1. **Créer plus d'instances**: Thomas Weber (Pro, 420W FTP) avec Specialized S-Works Tarmac
+   - [RaceBikeSpecializedSWorks](RaceBikeSpecializedSWorks.html)
+   - [RideReportThomasWeber](RideReportThomasWeber.html)
 2. **Affiner les composants**: Roues comme Devices séparés (référence `hasPart`)
 3. **Modéliser les intervalles**: `RideMetric.component` pour splits d'intervalles
 4. **Courses par étapes**: Chaîne `TrainingRide.partOf` pour tours multi-jours

@@ -73,6 +73,69 @@ resources:
     profile:
       - http://fhir.ch/ig/ch-ig/StructureDefinition/ch-ig-encounter
 
+  CyclistAnnaMuller:
+    name: CyclistAnnaMuller
+    description: Example cyclist Anna Müller with FTP extension
+    exampleBoolean: true
+    profile:
+      - http://fhir.ch/ig/ch-ig/StructureDefinition/cyclist
+
+  CyclistThomasWeber:
+    name: CyclistThomasWeber
+    description: Example professional cyclist Thomas Weber
+    exampleBoolean: true
+    profile:
+      - http://fhir.ch/ig/ch-ig/StructureDefinition/cyclist
+
+  RaceBikeCanyonUltimate:
+    name: RaceBikeCanyonUltimate
+    description: Anna's Canyon Ultimate CF SLX 8.0 race bike
+    exampleBoolean: true
+    profile:
+      - http://fhir.ch/ig/ch-ig/StructureDefinition/race-bike
+
+  RaceBikeSpecializedSWorks:
+    name: RaceBikeSpecializedSWorks
+    description: Thomas's Specialized S-Works Tarmac SL7 race bike
+    exampleBoolean: true
+    profile:
+      - http://fhir.ch/ig/ch-ig/StructureDefinition/race-bike
+
+  TrainingRideAnnaMorning:
+    name: TrainingRideAnnaMorning
+    description: Anna's morning interval training ride
+    exampleBoolean: true
+    profile:
+      - http://fhir.ch/ig/ch-ig/StructureDefinition/training-ride
+
+  RideMetricAnnaPower:
+    name: RideMetricAnnaPower
+    description: Anna's power metric - 215W average
+    exampleBoolean: true
+    profile:
+      - http://fhir.ch/ig/ch-ig/StructureDefinition/ride-metric
+
+  RideMetricAnnaHeartRate:
+    name: RideMetricAnnaHeartRate
+    description: Anna's heart rate metric - 142 bpm average
+    exampleBoolean: true
+    profile:
+      - http://fhir.ch/ig/ch-ig/StructureDefinition/ride-metric
+
+  RideMetricAnnaCadence:
+    name: RideMetricAnnaCadence
+    description: Anna's cadence metric - 88 rpm
+    exampleBoolean: true
+    profile:
+      - http://fhir.ch/ig/ch-ig/StructureDefinition/ride-metric
+
+  RideMetricAnnaSpeed:
+    name: RideMetricAnnaSpeed
+    description: Anna's speed metric - 32.5 km/h
+    exampleBoolean: true
+    profile:
+      - http://fhir.ch/ig/ch-ig/StructureDefinition/ride-metric
+
 # Parameters
   # Core FHIR: http://build.fhir.org/codesystem-guide-parameter-code.html
   # FHIR Tools IG: http://build.fhir.org/ig/FHIR/fhir-tools-ig/branches/master/CodeSystem-ig-parameters.html

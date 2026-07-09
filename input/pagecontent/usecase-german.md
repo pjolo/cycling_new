@@ -22,28 +22,36 @@ Dieser Implementierungsleitfaden (IG) modelliert den Radsport-Domain mit FHIR R4
    - Name: Anna Müller
    - Geburtsdatum: 15.06.1995
    - FTP: 245 W (Extension)
+   - [Beispiel ansehen](CyclistAnnaMuller.html)
 
 2. **Rennrad** (`RaceBikeCanyonUltimate`):
    - Modell: Canyon Ultimate CF SLX 8.0
    - Rahmen: Carbon (`RaceBikeFrameMaterial#carbon`)
    - Gruppe: Shimano Ultegra Di2 (`RaceBikeGroupset#shimano-ultegra`)
    - Laufräder: Tubeless (`RaceBikeWheelset#tubeless`)
+   - [Beispiel ansehen](RaceBikeCanyonUltimate.html)
 
 3. **Trainingsausfahrt** (`TrainingRideAnnaMorning`):
    - Status: completed
    - Datum: 15.01.2024, 08:30
    - Verknüpft mit Anna und ihrem Rad
+   - [Beispiel ansehen](TrainingRideAnnaMorning.html)
 
 4. **Metriken** (je eine `RideMetric`):
    - **Leistung**: 215 W durchschnittlich (`RideMetricType#power`)
+     - [Beispiel ansehen](RideMetricAnnaPower.html)
    - **Herzfrequenz**: 142 bpm durchschnittlich (`RideMetricType#heart-rate`)
+     - [Beispiel ansehen](RideMetricAnnaHeartRate.html)
    - **Trittfrequenz**: 88 rpm (`RideMetricType#cadence`)
+     - [Beispiel ansehen](RideMetricAnnaCadence.html)
    - **Geschwindigkeit**: 32.5 km/h (`RideMetricType#speed`)
+     - [Beispiel ansehen](RideMetricAnnaSpeed.html)
 
 5. **Ausfahrten-Bericht** (`RideReportAnnaMorning`):
    - Bundle vom Typ `document`
    - Enthält: Cyclist, RaceBike, TrainingRide, 4× RideMetric
    - Zeitstempel: 15.01.2024, 10:45
+   - [Beispiel ansehen](RideReportAnnaMorning.html)
 
 ## Terminologien (Spass-CodeSystems)
 
@@ -96,6 +104,8 @@ Alle CodeSystems sind **fiktiv** und nur für diesen Spass-IG gedacht:
 ## Nächste Schritte für Lernende
 
 1. **Weitere Instanzen erstellen**: Thomas Weber (Profi, 420W FTP) mit Specialized S-Works Tarmac
+   - [RaceBikeSpecializedSWorks.html](RaceBikeSpecializedSWorks.html)
+   - [RideReportThomasWeber.html](RideReportThomasWeber.html)
 2. **Komponenten verfeinern**: Laufräder als eigene Devices (`hasPart` Referenz)
 3. **Intervalle modellieren**: `RideMetric.component` für Intervall-Splits
 4. **Etappenrennen**: `TrainingRide.partOf` Kette für Mehrtagestouren

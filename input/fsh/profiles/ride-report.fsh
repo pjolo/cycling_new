@@ -16,9 +16,4 @@ Description: "A document bundle summarizing a training ride, including the cycli
     ride 1..1 MS and
     metrics 1..* MS
 
-* entry[cyclist].resource only Cyclist
-* entry[bike].resource only RaceBike
-* entry[ride].resource only TrainingRide
-* entry[metrics].resource only RideMetric
-
 * timestamp 1..1 MS
